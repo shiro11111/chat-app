@@ -3,7 +3,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { MessageService } from './message.service';
 import { map, switchMap } from 'rxjs/operators';
 import { Message } from './models/message';
-import { LoadMessages, SendMessage, SendMessageFail, SendMessageSuccess } from './message.actions';
+import { LoadMessages, SendMessage } from './message.actions';
 
 @Injectable()
 export class MessageEffects {
