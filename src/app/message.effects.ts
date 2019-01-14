@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { MessageService } from './message.service';
-import { map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { Message } from './models/message';
-import { LoadMessages, SendMessage } from './message.actions';
+import { LoadMessages, LoadMessagesFail, LoadMessagesSuccess, SendMessage } from './message.actions';
+import { HttpErrorResponse } from '@angular/common/http';
+import { of } from 'rxjs';
 
 @Injectable()
 export class MessageEffects {
@@ -16,9 +18,12 @@ export class MessageEffects {
     map((action: SendMessage) => action.payload as Message),
     switchMap((payload: Message) => this.service.sendMessage(payload)));
 
-  @Effect() loadMessages$ = this.actions$.pipe(
-    ofType('LOAD_MESSAGES'),
-    map((action: LoadMessages) => action.payload as Message[]),
-    switchMap((payload: Message[]) => this.service.loadMessages()));
+ @Effect() loadMessages$ = this.actions$.pipe(
+   ofType('LOAD_MESSAGES'),
+   switchMap(() => this.service.loadMessages().pipe(
+     map((res: Message[]) => (new LoadMessagesSuccess(res))),
+     catchError((error: HttpErrorResponse) => of(new LoadMessagesFail(error)))
+   ))
+ );
 
 }
