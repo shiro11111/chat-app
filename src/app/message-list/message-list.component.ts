@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AppState } from '../app.reducers';
+import { Store } from '@ngrx/store';
+import { LoadMessages } from '../message.actions';
+import { Message } from '../models/message';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { MessageState } from '../message.reducers';
 
 @Component({
   selector: 'app-message-list',
@@ -6,10 +13,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-list.component.css']
 })
 export class MessageListComponent implements OnInit {
+  list$: Observable<Message[]>;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+  }
 
   ngOnInit() {
+
+    this.store.dispatch(new LoadMessages());
+
+    this.list$ = this.store.select('messageState').pipe(
+      map((state: MessageState) => state && state.message));
   }
 
 }
