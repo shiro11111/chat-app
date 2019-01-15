@@ -1,3 +1,5 @@
-<p>
-  message-item works!
-</p>
+<mat-card class="mb-3">
+<div>{{ message?.author }}</div>
+<div>{{ message?.content }}</div>
+<div>{{ message?.timestamp | date }}</div>
+</mat-card>

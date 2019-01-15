@@ -1,3 +1,6 @@
-<p>
-  message-list works!
-</p>
+<div class="p-3">
+<ng-container *ngIf="(list$ | async)?.length > 0">
+  <app-message-item *ngFor="let item of (list$ | async)" [message]="item"></app-message-item>
+</ng-container>
+</div>
+<!--<pre>{{list$ | async | json}}</pre>-->

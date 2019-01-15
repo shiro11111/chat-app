@@ -3,7 +3,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { MessageService } from './message.service';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { Message } from './models/message';
-import { LoadMessages, LoadMessagesFail, LoadMessagesSuccess, SendMessage } from './message.actions';
+import { LoadMessagesFail, LoadMessagesSuccess, SendMessage, SendMessageSuccess } from './message.actions';
 import { HttpErrorResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 
@@ -16,7 +16,9 @@ export class MessageEffects {
   @Effect() sendMessage$ = this.actions$.pipe(
     ofType('SEND_MESSAGE'),
     map((action: SendMessage) => action.payload as Message),
-    switchMap((payload: Message) => this.service.sendMessage(payload)));
+    switchMap((payload: Message) => this.service.sendMessage(payload).pipe(
+      map(() => new SendMessageSuccess())
+    )));
 
  @Effect() loadMessages$ = this.actions$.pipe(
    ofType('LOAD_MESSAGES'),

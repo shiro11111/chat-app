@@ -1,3 +1,10 @@
-<p>
-  form works!
-</p>
+<form [formGroup]="form">
+  <mat-form-field class="mt-3 p-3">
+    <input matInput formControlName="content" placeholder="Wpisz wiadomość" required>
+  </mat-form-field>
+  <mat-radio-group formControlName="author">
+    <mat-radio-button value="Łukasz ze Kraśnika Fabrycznego">Autor 1</mat-radio-button>
+    <mat-radio-button value="Mati z Zamoja">Autor 2</mat-radio-button>
+  </mat-radio-group>
+  <button mat-button type="submit" (click)="onSubmit()">Wyślij</button>
+</form>

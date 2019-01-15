@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Message } from './models/message';
 
-// @ts-ignore
-@Injectable({
+
+Injectable({
   providedIn: 'root'
-})
+});
 
 const list: Message[] = [];
 
@@ -15,8 +15,8 @@ export class MessageService {
     return of(list);
   }
 
-  sendMessage(message: Message): null {
+  sendMessage(message: Message): any {
     list.push(message);
-    return null;
+    return of(null);
   }
 }

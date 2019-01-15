@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '../app.reducers';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { LoadMessages } from '../message.actions';
 import { Message } from '../models/message';
 import { Observable } from 'rxjs';
@@ -22,8 +22,7 @@ export class MessageListComponent implements OnInit {
 
     this.store.dispatch(new LoadMessages());
 
-    this.list$ = this.store.select('messageState').pipe(
-      map((state: MessageState) => state && state.message));
+    this.list$ = this.store.pipe(select('messageState')).pipe(
+      map((state: MessageState) => state && state.list));
   }
-
 }
