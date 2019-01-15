@@ -2,9 +2,11 @@
   <mat-form-field class="mt-3 p-3 w-50">
     <input matInput formControlName="content" placeholder="Wpisz wiadomość" required>
   </mat-form-field>
+  <div>
   <mat-radio-group formControlName="author">
     <mat-radio-button class="ml-2" value="Łukasz ze Kraśnika Fabrycznego">Autor 1</mat-radio-button>
     <mat-radio-button class="ml-2" value="Mati z Zamoja">Autor 2</mat-radio-button>
   </mat-radio-group>
+  </div>
   <button mat-button class="ml-3" type="submit" (click)="onSubmit()">Wyślij</button>
 </form>

@@ -1,5 +1,5 @@
-<mat-card class="mb-3">
-<div>{{ message?.author }}</div>
-<div>{{ message?.content }}</div>
-<div>{{ message?.timestamp | date }}</div>
+<mat-card class="my-3" [ngClass]="{'author': message?.author === 'Mati z Zamoja'}">
+  <div>{{ message?.author }}</div>
+  <div>{{ message?.content }}</div>
+  <div>{{ message?.timestamp | date }}</div>
 </mat-card>
