@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessageItemComponent } from './message-item.component';
 import { MatCardModule } from '@angular/material';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../app.reducers';
 
 describe('MessageItemComponent', () => {
   let component: MessageItemComponent;
@@ -10,7 +12,8 @@ describe('MessageItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MessageItemComponent ],
-      imports: [ MatCardModule ]
+      imports: [ MatCardModule,
+      StoreModule.forRoot(reducers)]
     })
     .compileComponents();
   }));

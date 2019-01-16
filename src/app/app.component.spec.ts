@@ -7,6 +7,7 @@ import { reducers } from './app.reducers';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatInputModule, MatRadioModule } from '@angular/material';
 import { MessageItemComponent } from './message-item/message-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -16,14 +17,14 @@ describe('AppComponent', () => {
         MessageListComponent,
         MessageItemComponent
       ],
-      imports: [ BrowserAnimationsModule,
+      imports: [
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
         MatCardModule,
         MatInputModule,
         MatRadioModule,
-        AppComponent,
-        MessageListComponent,
-        FormComponent,
-        StoreModule.forRoot(reducers)]
+        StoreModule.forRoot(reducers)
+      ]
     }).compileComponents();
   }));
 
@@ -39,10 +40,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('chat-app');
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to chat-app!');
-  });
 });

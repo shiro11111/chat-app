@@ -5,6 +5,8 @@ import { Store, StoreModule } from '@ngrx/store';
 import { AppState, reducers } from '../app.reducers';
 import { LoadMessages } from '../message.actions';
 import { first } from 'rxjs/operators';
+import { MessageItemComponent } from '../message-item/message-item.component';
+import { MatCardModule } from '@angular/material';
 
 
 describe('MessageListComponent', () => {
@@ -14,8 +16,9 @@ describe('MessageListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageListComponent ],
+      declarations: [ MessageListComponent, MessageItemComponent ],
       imports: [StoreModule.forRoot(reducers),
+        MatCardModule,
       ]
     })
     .compileComponents();

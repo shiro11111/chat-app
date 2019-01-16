@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatInputModule, MatRadioModule } from '@angular/material';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     FormComponent
   ],
   imports: [
+    CommonModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatInputModule,

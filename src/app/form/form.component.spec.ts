@@ -6,6 +6,7 @@ import { MatCardModule, MatInputModule, MatRadioModule } from '@angular/material
 import { AppState, reducers } from '../app.reducers';
 import { Store, StoreModule } from '@ngrx/store';
 import { SendMessage } from '../message.actions';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -19,6 +20,7 @@ describe('FormComponent', () => {
         MatCardModule,
         MatInputModule,
         MatRadioModule,
+        ReactiveFormsModule,
         StoreModule.forRoot(reducers)]
     })
       .compileComponents();
@@ -42,11 +44,9 @@ describe('FormComponent', () => {
   });
 
   it('should send message', () => {
+    const dateMock: Date = new Date();
+    component.form.patchValue({ timestamp: dateMock });
     component.onSubmit();
-    const payload = {
-      ...component.form.value,
-      timestamp: new Date()
-    };
-    expect(store.dispatch).toHaveBeenCalledWith(new SendMessage(payload));
+    expect(store.dispatch).toHaveBeenCalledWith(new SendMessage(component.form.value));
   });
 });
