@@ -1,4 +1,5 @@
 import {
+  DELETE_MESSAGE, DELETE_MESSAGE_FAIL, DELETE_MESSAGE_SUCCESS,
   LOAD_MESSAGES, LOAD_MESSAGES_FAIL,
   LOAD_MESSAGES_SUCCESS,
   MessageActions,
@@ -43,6 +44,19 @@ export function messageReducer(state = initialState, action: MessageActions) {
         list: action.payload
       };
     case LOAD_MESSAGES_FAIL:
+      return {
+        ...state
+      };
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        delete: action.payload
+      };
+      case DELETE_MESSAGE_SUCCESS:
+        return {
+          ...state
+        };
+    case DELETE_MESSAGE_FAIL:
       return {
         ...state
       };

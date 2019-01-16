@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MessageItemComponent } from './message-item.component';
+import { MatCardModule } from '@angular/material';
 
 describe('MessageItemComponent', () => {
   let component: MessageItemComponent;
@@ -8,7 +9,8 @@ describe('MessageItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageItemComponent ]
+      declarations: [ MessageItemComponent ],
+      imports: [ MatCardModule ]
     })
     .compileComponents();
   }));

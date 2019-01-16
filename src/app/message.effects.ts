@@ -3,7 +3,14 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { MessageService } from './message.service';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { Message } from './models/message';
-import { LoadMessagesFail, LoadMessagesSuccess, SendMessage, SendMessageSuccess } from './message.actions';
+import {
+  DeleteMessage,
+  DeleteMessageSuccess,
+  LoadMessagesFail,
+  LoadMessagesSuccess,
+  SendMessage,
+  SendMessageSuccess
+} from './message.actions';
 import { HttpErrorResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 
@@ -28,4 +35,10 @@ export class MessageEffects {
    ))
  );
 
+ @Effect() deleteMessage$ = this.actions$.pipe(
+   ofType('DELETE_MESSAGE'),
+  map((action: DeleteMessage) => action.payload),
+   switchMap((payload: Message) => this.service.deleteMessage(payload).pipe(
+     map(() => new DeleteMessageSuccess())
+   )));
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MessageService } from '../message.service';
 import { AppState } from '../app.reducers';
 import { Store } from '@ngrx/store';
 import { SendMessage } from '../message.actions';

@@ -1,12 +1,29 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MessageListComponent } from './message-list/message-list.component';
+import { FormComponent } from './form/form.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './app.reducers';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule, MatInputModule, MatRadioModule } from '@angular/material';
+import { MessageItemComponent } from './message-item/message-item.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      declarations: [AppComponent,
+        FormComponent,
+        MessageListComponent,
+        MessageItemComponent
       ],
+      imports: [ BrowserAnimationsModule,
+        MatCardModule,
+        MatInputModule,
+        MatRadioModule,
+        AppComponent,
+        MessageListComponent,
+        FormComponent,
+        StoreModule.forRoot(reducers)]
     }).compileComponents();
   }));
 

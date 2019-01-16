@@ -2,4 +2,5 @@
   <div>{{ message?.author }}</div>
   <div>{{ message?.content }}</div>
   <div>{{ message?.timestamp | date }}</div>
+  <button mat-button (click)="deleteMessage(message)">Usuń</button>
 </mat-card>

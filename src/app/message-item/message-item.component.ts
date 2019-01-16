@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../models/message';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.reducers';
+import { DeleteMessage } from '../message.actions';
 
 @Component({
   selector: 'app-message-item',
@@ -9,11 +12,15 @@ import { Message } from '../models/message';
 export class MessageItemComponent implements OnInit {
 
   @Input() message: Message;
-  @Input() author
+  @Input() author;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+  }
+
+  deleteMessage(): void {
+    this.store.dispatch(new DeleteMessage(this.message));
   }
 
 }

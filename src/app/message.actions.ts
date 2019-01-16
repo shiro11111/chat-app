@@ -9,6 +9,9 @@ export const SEND_MESSAGE_FAIL = 'SEND_MESSAGE_FAIL';
 export const LOAD_MESSAGES = uniqueActionType('LOAD_MESSAGES');
 export const LOAD_MESSAGES_SUCCESS = 'LOAD_MESSAGES_SUCCESS';
 export const LOAD_MESSAGES_FAIL = 'LOAD_MESSAGES';
+export const DELETE_MESSAGE = 'DELETE_MESSAGE';
+export const DELETE_MESSAGE_SUCCESS = 'DELETE_MESSAGE_SUCCESS';
+export const DELETE_MESSAGE_FAIL = 'DELETE_MESSAGE_FAIL';
 
 export class SendMessage implements Action {
   readonly  type = SEND_MESSAGE;
@@ -40,4 +43,18 @@ export class LoadMessagesFail implements Action {
   constructor(public payload: HttpErrorResponse) {}
 }
 
-export type MessageActions = SendMessage | SendMessageSuccess | SendMessageFail | LoadMessages | LoadMessagesSuccess | LoadMessagesFail;
+export class DeleteMessage implements Action {
+  readonly  type = DELETE_MESSAGE;
+  constructor(public payload: Message) {}
+}
+
+export class DeleteMessageSuccess implements Action {
+  readonly  type = DELETE_MESSAGE_SUCCESS;
+}
+
+export class DeleteMessageFail implements Action {
+  readonly  type = DELETE_MESSAGE_FAIL;
+}
+
+export type MessageActions = SendMessage | SendMessageSuccess | SendMessageFail | LoadMessages | LoadMessagesSuccess |
+  LoadMessagesFail | DeleteMessage | DeleteMessageSuccess | DeleteMessageFail;

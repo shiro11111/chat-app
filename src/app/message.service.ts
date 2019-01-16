@@ -19,4 +19,11 @@ export class MessageService {
     list.push(message);
     return of(null);
   }
+
+  deleteMessage(message: Message): any {
+    if (list.indexOf(message) !== -1) {
+      list.splice(list.indexOf(message), 1);
+    }
+    return of(null);
+  }
 }
