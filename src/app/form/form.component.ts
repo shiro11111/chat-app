@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppState } from '../app.reducers';
 import { Store } from '@ngrx/store';
 import { SendMessage } from '../message.actions';
@@ -36,5 +36,4 @@ export class FormComponent implements OnInit {
     this.store.dispatch(new SendMessage(payload));
     this.form.get('content').setValue(null);
   }
-
 }

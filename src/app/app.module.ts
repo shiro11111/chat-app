@@ -10,7 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { MessageEffects } from './message.effects';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatInputModule, MatRadioModule } from '@angular/material';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -34,6 +34,7 @@ import { CommonModule } from '@angular/common';
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
+    FormsModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([
