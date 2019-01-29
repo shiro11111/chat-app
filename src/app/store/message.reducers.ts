@@ -7,7 +7,7 @@ import {
   SEND_MESSAGE_FAIL,
   SEND_MESSAGE_SUCCESS
 } from './message.actions';
-import { Message } from './models/message';
+import { Message } from '../models/message';
 
 export interface MessageState {
   message: Message;

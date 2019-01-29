@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '../app.reducers';
 import { select, Store } from '@ngrx/store';
-import { LoadMessages } from '../message.actions';
+import { LoadMessages } from '../store/message.actions';
 import { Message } from '../models/message';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MessageState } from '../message.reducers';
+import { MessageState } from '../store/message.reducers';
 
 @Component({
   selector: 'app-message-list',

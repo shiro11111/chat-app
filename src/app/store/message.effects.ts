@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { MessageService } from './message.service';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { Message } from './models/message';
+import { Message } from '../models/message';
 import {
   DeleteMessage,
   DeleteMessageSuccess,

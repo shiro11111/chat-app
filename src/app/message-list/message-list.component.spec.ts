@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MessageListComponent } from './message-list.component';
 import { Store, StoreModule } from '@ngrx/store';
 import { AppState, reducers } from '../app.reducers';
-import { LoadMessages } from '../message.actions';
+import { LoadMessages } from '../store/message.actions';
 import { first } from 'rxjs/operators';
 import { MessageItemComponent } from '../message-item/message-item.component';
 import { MatCardModule } from '@angular/material';

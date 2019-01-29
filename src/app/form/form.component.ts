@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppState } from '../app.reducers';
 import { Store } from '@ngrx/store';
-import { SendMessage } from '../message.actions';
+import { SendMessage } from '../store/message.actions';
 
 
 @Component({

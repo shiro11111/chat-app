@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatInputModule, MatRadioModule } from '@angular/material';
 import { AppState, reducers } from '../app.reducers';
 import { Store, StoreModule } from '@ngrx/store';
-import { SendMessage } from '../message.actions';
+import { SendMessage } from '../store/message.actions';
 import { ReactiveFormsModule } from '@angular/forms';
 
 describe('FormComponent', () => {

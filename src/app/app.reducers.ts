@@ -1,6 +1,6 @@
-import * as fromMessageState from './message.reducers';
+import * as fromMessageState from './store/message.reducers';
 import { ActionReducerMap } from '@ngrx/store';
-import { messageReducer } from './message.reducers';
+import { messageReducer } from './store/message.reducers';
 
 
 export interface AppState {

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../models/message';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducers';
-import { DeleteMessage } from '../message.actions';
+import { DeleteMessage } from '../store/message.actions';
 
 @Component({
   selector: 'app-message-item',

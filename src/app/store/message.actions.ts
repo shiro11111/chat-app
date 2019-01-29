@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
-import { Message } from './models/message';
+import { Message } from '../models/message';
 import { HttpErrorResponse } from '@angular/common/http';
-import { uniqueActionType } from './unique-action-type';
+import { uniqueActionType } from '../unique-action-type';
 
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS';
